@@ -15,5 +15,5 @@ Create OrbitingBodies and modify values. Then run the program :)
 ## History
 -Euler method, Runge-Khutta next
 ## Resources
-https://en.wikipedia.org/wiki/N-body_problem
+https://en.wikipedia.org/wiki/N-body_problem  
 https://rosettacode.org/wiki/Euler_method
