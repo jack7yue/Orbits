@@ -26,7 +26,7 @@ class OrbitingBody(turtle.Turtle):
     name = ""
     mass = 0.0
     pos_x, pos_y = 0.0, 0.0
-    vel_x, vel_y = 0.0, 0.0
+    newpos_x, newpos_y = 0.0, 0.0
 
     def acceleration(self, other_body):
 
@@ -70,7 +70,6 @@ def update(bodies):
             # Removes the trails from the turtles. This can be removed along with pendown() to see the trails
 
             net_ax, net_ay = 0.0, 0.0
-            # Computing all the forces before performing operations
 
             for OtherBody in bodies:
 
@@ -91,43 +90,33 @@ def update(bodies):
                 Body.pos_y += Body.vel_y
 
                 Body.goto(Body.pos_x, Body.pos_y)
-            Body.pendown()
+                Body.pendown()
 
 
 def main():
 
-    # The bodies are drawn using turtle so any changes to them can be adjusted with turtle
-
-    turtle.bgcolor("black")
-    turtle.speed(0)
-
     sun = OrbitingBody()
-    sun.shapesize(2)
-    sun.mass = 20000
     sun.color("yellow")
     sun.shape("circle")
     sun.name = "SUN"
+    sun.mass = 100000
 
     earth = OrbitingBody()
-    earth.shapesize(0.1)
     earth.color("green")
     earth.shape("circle")
     earth.name = "EARTH"
-    earth.mass = 1
-    earth.pos_x = 150.0
-    earth.vel_y = 1.25
-    earth.vel_x = 0
+    earth.mass = 10
+    earth.pos_x = 300
+    earth.vel_y = 1
 
     mars = OrbitingBody()
-    mars.shapesize(.1)
+    mars.pendown()
     mars.shape("circle")
     mars.color("red")
     mars.name = "Mars"
-    mars.mass = 1
-    mars.pos_x = -150.0
+    mars.mass = 8
+    mars.pos_x = -500
     mars.vel_y = -1
-    mars.vel_x = 0
-
 
     update([sun, earth, mars])
 
